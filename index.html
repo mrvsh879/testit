@@ -1,536 +1,465 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>CEFR Тест уровня языка A1–C2 (DE) — с AI-аудитом</title>
-<meta name="description" content="Профессиональный тест уровня языка A1–C2: 48 вопросов, антиугадывание, надёжность, AI-аудит результата и взвешенный индекс." />
-<style>
-:root{--bg:#0f1221;--card:#171a2e;--muted:#8b91b2;--text:#e9ecf7;--accent:#6ea8fe;--ok:#2ecc71;--bad:#ff6b6b;--warn:#ffd166}
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0d1020 0%,#0f1221 60%,#0b0f1a 100%);color:var(--text)}
-.wrap{max-width:980px;margin:0 auto;padding:24px}
-.card{background:var(--card);border:1px solid #202547;box-shadow:0 10px 30px rgba(0,0,0,.35);border-radius:16px;padding:20px}
-h1{margin:0 0 12px;font-size:24px;letter-spacing:.2px}
-.muted{color:var(--muted)}
-.row{display:flex;gap:16px;flex-wrap:wrap}
-.col{flex:1 1 300px}
-.btn{appearance:none;border:1px solid #27305b;background:#1c2242;color:var(--text);padding:12px 16px;border-radius:12px;font-weight:600;cursor:pointer;transition:.15s}
-.btn:hover{transform:translateY(-1px);background:#212a54}
-.btn.primary{background:linear-gradient(180deg,#6ea8fe,#4c7ef5);border-color:#345bd6;color:#051028}
-.btn.ghost{background:transparent;border-color:#2a335f}
-.btn.ok{background:#0f3a26;border-color:#1f7a50}
-.bar{height:10px;background:#10142b;border:1px solid #2a2e56;border-radius:999px;overflow:hidden}
-.bar>div{height:100%;background:linear-gradient(90deg,#4c7ef5,#6ea8fe)}
-.grid{display:grid;gap:14px}
-.kpi{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#11142a;border:1px solid #23264a;border-radius:12px}
-.kpi .v{font-weight:700}
-.q{padding:16px;border:1px solid #242953;border-radius:12px;background:#121634}
-.q h3{margin:0 0 10px;font-size:16px}
-.opt{display:block;border:1px solid #2a2f61;border-radius:10px;padding:10px;cursor:pointer;background:#111539}
-.opt+.opt{margin-top:8px}
-.opt.correct{border-color:#1f8c5a;background:#0e2e22}
-.opt.wrong{border-color:#9e2e2e;background:#2a1111}
-.level-tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;border:1px solid #2a2e56;color:#aeb7e8}
-.footer{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:16px}
-.note{padding:10px 12px;background:#0e122b;border:1px dashed #2b3166;border-radius:12px}
-.hidden{display:none}
-.badge{padding:2px 8px;border-radius:999px;border:1px solid #2b3166;background:#0e122b;color:#aeb7e8}
-.result{padding:16px;border:1px solid #2a2e56;border-radius:12px;background:#0f1431}
-.table{width:100%;border-collapse:collapse}
-.table th,.table td{border-bottom:1px solid #23264c;padding:8px;text-align:left}
-.hr{height:1px;background:#252a53;margin:16px 0}
-.small{font-size:12px}
-.chip{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid #2b3166;margin-right:6px;margin-bottom:6px}
-.ai{background:#0b152b;border-color:#20325d}
-.spinner{width:16px;height:16px;border:2px solid #2a3f7a;border-top-color:#6ea8fe;border-radius:50%;display:inline-block;animation:spin .9s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (max-width:520px){.footer{flex-direction:column}}
-@media print{.wrap{padding:0}.card{box-shadow:none;border:0;border-radius:0}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Інтерактивний тест — Італія та ENI</title>
+  <meta name="description" content="Онлайн-тест про Італію та енергетичну компанію ENI. 10 питань, таймер, локальна перевірка та відправка результатів на вебхук." />
+  <style>
+    :root { --bg:#0b0f19; --panel:#121829; --text:#e6e9f2; --muted:#9aa3b2; --brand:#6ea8fe; --brand-2:#22d3ee; --border:#1f2a44; }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.08), transparent),
+        radial-gradient(1200px 600px at 90% 110%, rgba(110,168,254,.08), transparent),
+        var(--bg);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      line-height:1.6
+    }
+    .wrap{max-width:900px;margin:40px auto;padding:24px}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border:1px solid var(--border);
+      backdrop-filter:blur(8px);
+      border-radius:18px;
+      box-shadow:0 12px 40px rgba(0,0,0,.35);
+      overflow:hidden
+    }
+    header{padding:22px 22px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    h1{font-size:22px;margin:0;letter-spacing:.2px}
+    .muted{color:var(--muted);font-size:14px}
+    .progress{width:100%;height:8px;background:#0e1526;border:1px solid var(--border);border-radius:999px;overflow:hidden;margin:8px 0 0}
+    .progress>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+    .body{padding:22px}
+    .q-title{font-size:20px;font-weight:700;margin:0 0 8px}
+    .q-note{margin:0 0 16px;color:var(--muted)}
+    .options{display:grid;gap:12px}
+    .opt{border:1px solid var(--border);border-radius:14px;padding:14px;background:#0e1526;display:flex;align-items:center;gap:12px}
+    .opt input{width:18px;height:18px;accent-color:var(--brand)}
+    .btn{
+      appearance:none;border:1px solid var(--border);color:var(--text);
+      background:linear-gradient(180deg,#1a2340,#15203b);
+      padding:12px 16px;border-radius:12px;cursor:pointer;font-weight:600;transition:opacity .2s ease
+    }
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+    .footer{padding:16px 22px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+    .hidden{display:none !important}
+    .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+    .kpi{text-align:center;padding:14px;border:1px solid var(--border);border-radius:12px;background:#0e1526}
+    .kpi b{font-size:20px;display:block}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{border-bottom:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px}
+    .pill.ok{background:rgba(34,197,94,.15);color:#86efac}
+    .pill.bad{background:rgba(239,68,68,.15);color:#fca5a5}
+    .status{margin-left:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:#0e1526;font-size:12px}
+    .status.ok{color:#86efac;border-color:rgba(34,197,94,.35)}
+    .status.err{color:#fca5a5;border-color:rgba(239,68,68,.35)}
+    .timer{margin-left:auto;font-weight:700}
+    .email-badge{margin-left:auto;background:#0e1526;border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:12px}
+    .signin-wrap{display:flex;align-items:center;gap:12px}
+    .warning{background:rgba(255,255,255,.03);border:1px dashed var(--border);padding:10px 12px;border-radius:12px;margin-top:10px;font-size:13px;color:var(--muted)}
+    .actions{display:flex;gap:10px;align-items:center;margin:10px 0 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+  </style>
+  <!-- Внешние скрипты: ок для GitHub Pages -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js" defer></script>
 </head>
 <body>
-<div class="wrap">
-  <div class="card" id="screen-intro">
-    <h1>Тест уровня языка A1–C2 (немецкий, CEFR)</h1>
-    <p class="muted">48 вопросов (по 8 на уровень). Антиугадывание. Итог проверит AI. Плюс «взвешенный индекс» — мягкая оценка.</p>
-    <div class="row">
-      <div class="col grid">
-        <div class="kpi"><span>Формат:</span><span class="v">Multiple choice + «Не знаю»</span></div>
-        <div class="kpi"><span>Штраф за ошибку:</span><span class="v">−0.33</span></div>
-        <div class="kpi"><span>AI-аудит:</span><span class="v">коррекция уровня и доверия</span></div>
-      </div>
-      <div class="col note">
-        <strong>Честность важна:</strong> без переводчиков, не подсматривайте. AI анализирует скорость/паттерны.
-      </div>
-    </div>
-    <div class="hr"></div>
-    <label class="opt" style="background:#0f1431">
-      <input type="checkbox" id="honesty" /> Подтверждаю честное прохождение без посторонней помощи.
-    </label>
-    <div class="footer">
-      <div class="bar" style="flex:1"><div style="width:0%"></div></div>
-      <button class="btn primary" id="startBtn">Начать тест</button>
-    </div>
-    <p id="aiWarn" class="small muted" style="margin-top:10px;"></p>
-  </div>
+  <div class="wrap">
+    <div class="card" id="app">
+      <header>
+        <div>
+          <div class="brand">
+            <span class="dot" aria-hidden="true"></span>
+            <h1>Інтерактивний тест — Італія та ENI</h1>
+          </div>
+          <div class="muted">Вхід через Google або вкажіть робочу пошту. 20 хв на проходження. Перезапуск заборонено.</div>
+          <div class="progress" aria-label="Прогрес проходження"><i id="bar"></i></div>
+        </div>
+        <div id="userBlock" class="signin-wrap">
+          <!-- Заміни на свій client_id, якщо потрібен Google One Tap -->
+          <div id="g_id_onload"
+               data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+               data-callback="handleCredentialResponse"
+               data-auto_prompt="false"></div>
+          <div class="g_id_signin" data-type="standard" data-size="medium" data-shape="pill" data-theme="outline" data-logo_alignment="left"></div>
+          <div class="fld" id="manualEmail">
+            <input id="emailInput" type="email" placeholder="ваша_пошта@company.com" />
+            <button class="btn" id="startBtn">Старт</button>
+          </div>
+          <span id="emailBadge" class="email-badge hidden" aria-live="polite"></span>
+          <span id="timer" class="timer hidden">20:00</span>
+        </div>
+      </header>
 
-  <div class="card hidden" id="screen-test">
-    <div class="footer">
-      <div><span class="badge" id="progressBadge">Вопрос 1 / 48</span></div>
-      <div class="bar" style="flex:1;max-width:420px"><div id="progressBar" style="width:0%"></div></div>
-      <div>
-        <span class="badge" id="timerBadge">00:00</span>
-        <span class="badge" id="speedBadge">скорость: —</span>
-      </div>
-    </div>
-    <div id="questionHost" class="grid" style="margin-top:12px"></div>
-    <div class="footer">
-      <div class="muted small">Уровень вопроса: <span id="lvlTag" class="level-tag">—</span></div>
-      <div>
-        <button class="btn ghost" id="prevBtn">← Назад</button>
-        <button class="btn" id="nextBtn">Далее →</button>
-        <button class="btn ok hidden" id="finishBtn">Завершить тест</button>
+      <div class="body" id="stage"></div>
+
+      <div class="footer">
+        <div class="muted" id="status">Питання 1 із N</div>
+        <div>
+          <button class="btn" id="restartBtn" title="Скидання заборонено" disabled>Скинути</button>
+          <button class="btn" id="nextBtn" disabled>Далі →</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="card hidden" id="screen-result">
-    <h2 style="margin:0 0 6px">Ваш результат</h2>
-    <div id="headline"></div>
-    <div class="hr"></div>
-    <div class="grid">
-      <div class="result" id="summaryBox"></div>
-      <div class="result">
-        <h3 style="margin:0 0 8px">Профиль по уровням</h3>
-        <table class="table" id="bandTable">
-          <thead><tr><th>Уровень</th><th>Верно</th><th>Всего</th><th>Точность</th></tr></thead>
-          <tbody></tbody>
+  <script>
+    // ====== НАЛАШТУВАННЯ ТЕСТУ (Італія + ENI) ======
+    const QUIZ = {
+      title: "Тест про Італію та ENI (10 питань)",
+      durationMin: 20,
+      // Вебхук можна замінити на свій (Google Apps Script / інший бекенд)
+      webhookUrl: "https://script.google.com/macros/s/AKfycbz0ZKCEcUj6tMBIvp33L0QFlZMZ8u4R4floJi9FiIwGYOABVLt7zuf_hu50UMYAgcOJ/exec",
+
+      // Ключ правильних відповідей (0-базові індекси):
+      // 1:A(0), 2:A(0), 3:A(0), 4:A(0), 5:A(0), 6:B(1), 7:B(1), 8:C(2), 9:C(2), 10:A(0)
+      answerKey: [0,0,0,0,0,1,1,2,2,0],
+
+      questions: [
+        { type:'single', text:'Хто є чинним прем’єр-міністром Італії?', options:[
+          'Джорджія Мелоні','Маріо Драґі','Маттео Ренці','Сільвіо Берлусконі'
+        ]},
+        { type:'single', text:'Хто є чинним Президентом Італії?', options:[
+          'Серджо Маттарелла','Луїджі Ді Майо','Джузеппе Конте','Карло Азельо Чампі'
+        ]},
+        { type:'single', text:'Хто є генеральним директором компанії ENI?', options:[
+          'Клаудіо Дескальці','Франческо Стараче','Паоло Скароні','Роберто Каффа'
+        ]},
+        { type:'single', text:'У якому році була утворена Італійська Республіка?', options:[
+          '1946','1861','1957','1918'
+        ]},
+        { type:'single', text:'Яка орієнтовна ринкова капіталізація компанії ENI у 2024 році?', options:[
+          'Близько 50 мільярдів євро','Близько 10 мільярдів євро','Близько 100 мільярдів євро','Менше 5 мільярдів євро'
+        ]},
+        { type:'single', text:'Де знаходиться головний офіс компанії ENI?', options:[
+          'Рим','Мілан','Турін','Неаполь'
+        ]},
+        { type:'single', text:'Скільки приблизно працівників має компанію ENI?', options:[
+          '15 000','30 000','70 000','5 000'
+        ]},
+        { type:'single', text:'На якій біржі торгуються акції компанії ENI?', options:[
+          'Лондонська біржа','Нью-Йоркська фондова біржа','Міланська фондова біржа','Франкфуртська біржа'
+        ]},
+        { type:'single', text:'Яке місто є столицею Італії?', options:[
+          'Неаполь','Мілан','Рим','Турін'
+        ]},
+        { type:'single', text:'Яке місто відоме виробництвом автомобілів Ferrari?', options:[
+          'Модена','Болонья','Турін','Верона'
+        ]}
+      ]
+    };
+
+    // ====== Глобал/DOM ======
+    const stage = document.getElementById('stage');
+    const nextBtn = document.getElementById('nextBtn');
+    const restartBtn = document.getElementById('restartBtn');
+    const statusEl = document.getElementById('status');
+    const bar = document.getElementById('bar');
+    const emailBadge = document.getElementById('emailBadge');
+    const timerEl = document.getElementById('timer');
+    const startBtn = document.getElementById('startBtn');
+    const emailInput = document.getElementById('emailInput');
+    const LS = { email:'quiz_user_email', end:'quiz_end_ts', idx:'quiz_idx', data:'quiz_answers', start:'quiz_start_ts' };
+
+    let order = [...Array(QUIZ.questions.length).keys()];
+    let idx = 0;
+    let answers = [];
+
+    // ====== Вхід ======
+    window.handleCredentialResponse = function(res){
+      try { const payload = parseJwt(res.credential); const email = payload.email; if(!email) throw new Error(); lockAndStart(email); }
+      catch(e){ alert('Помилка входу через Google. Можна вказати пошту вручну.'); }
+    };
+    function parseJwt (token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+      return JSON.parse(jsonPayload);
+    }
+
+    startBtn.addEventListener('click', () => {
+      const email = (emailInput.value||'').trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { alert('Укажіть коректну робочу пошту'); return; }
+      lockAndStart(email);
+    });
+
+    function lockAndStart(email){
+      const existingEmail = localStorage.getItem(LS.email);
+      const endTs = +localStorage.getItem(LS.end) || 0;
+      const now = Date.now();
+      if(existingEmail && endTs && now < endTs && existingEmail !== email){
+        alert('Тест вже запущено під іншим аккаунтом і не може бути скинуто до завершення часу.');
+        return;
+      }
+      localStorage.setItem(LS.email, email);
+      emailBadge.textContent = email; emailBadge.classList.remove('hidden');
+      document.querySelector('.g_id_signin')?.classList.add('hidden');
+      document.getElementById('manualEmail')?.classList.add('hidden');
+
+      if(!localStorage.getItem(LS.end)){
+        const end = now + QUIZ.durationMin*60*1000;
+        localStorage.setItem(LS.end, String(end));
+        localStorage.setItem(LS.start, String(now));
+        localStorage.setItem(LS.idx, '0');
+        localStorage.setItem(LS.data, JSON.stringify([]));
+      }
+      idx = +(localStorage.getItem(LS.idx) || '0');
+      answers = JSON.parse(localStorage.getItem(LS.data) || '[]');
+      timerEl.classList.remove('hidden');
+      tickTimer();
+      render();
+    }
+
+    (function bootstrap(){
+      const email = localStorage.getItem(LS.email);
+      const endTs = +localStorage.getItem(LS.end) || 0;
+      if(email && endTs){
+        emailBadge.textContent = email; emailBadge.classList.remove('hidden');
+        document.querySelector('.g_id_signin')?.classList.add('hidden');
+        document.getElementById('manualEmail')?.classList.add('hidden');
+        timerEl.classList.remove('hidden');
+        idx = +(localStorage.getItem(LS.idx) || '0');
+        answers = JSON.parse(localStorage.getItem(LS.data) || '[]');
+        tickTimer();
+        render();
+      } else {
+        stage.innerHTML = '<div class="warning">Увійдіть через Google або вкажіть робочу пошту, щоб почати. Після старту таймер запуститься на 20 хвилин, а скидання буде недоступне.</div>';
+        statusEl.textContent = 'Авторизуйтеся, щоб почати';
+      }
+    })();
+
+    function updateProgress(){
+      const total = order.length;
+      statusEl.textContent = `Питання ${Math.min(idx+1,total)} із ${total}`;
+      bar.style.width = `${(idx/total)*100}%`;
+    }
+
+    function render(){
+      updateProgress();
+      nextBtn.disabled = true;
+      stage.innerHTML = '';
+      if(idx >= order.length){ return renderResult(); }
+
+      const qOriginalIndex = order[idx];
+      const q = QUIZ.questions[qOriginalIndex];
+
+      const block = document.createElement('div');
+      const h = document.createElement('h2'); h.className='q-title'; h.textContent = q.text; block.appendChild(h);
+      const note = document.createElement('div'); note.className='q-note muted';
+      note.textContent =
+        q.type==='match' ? 'Перетягніть картки праворуч у відповідні слоти ліворуч' :
+        q.type==='order' ? 'Перетягніть пункти, щоб виставити порядок' :
+        q.type==='multiple' ? 'Можна обрати кілька варіантів' :
+        'Оберіть один варіант';
+      block.appendChild(note);
+
+      const options = document.createElement('div'); options.className='options';
+
+      if(q.type==='single' || q.type==='multiple'){
+        const isMulti = q.type==='multiple';
+        q.options.forEach((opt,i)=>{
+          const label=document.createElement('label'); label.className='opt';
+          const input=document.createElement('input'); input.type=isMulti?'checkbox':'radio'; input.name='q'; input.value=i;
+          const span=document.createElement('span'); span.textContent=opt;
+          label.appendChild(input); label.appendChild(span); options.appendChild(label);
+        });
+      }
+      if(q.type==='order'){
+        const list = document.createElement('div'); list.id='orderList'; list.className='options';
+        q.items.forEach(txt=>{ const d=document.createElement('div'); d.className='draggable'; d.textContent=txt; list.appendChild(d); });
+        options.appendChild(list); new Sortable(list,{animation:150});
+      }
+
+      block.appendChild(options); stage.appendChild(block);
+
+      if(q.type==='single'){
+        options.addEventListener('change', ()=>{ nextBtn.disabled = !options.querySelector('input:checked'); });
+      } else if(q.type==='multiple'){
+        options.addEventListener('change', ()=>{ nextBtn.disabled = options.querySelectorAll('input:checked').length === 0; });
+      } else {
+        nextBtn.disabled = false;
+      }
+
+      nextBtn.onclick = () => saveAndNext(qOriginalIndex, q, options);
+      restartBtn.onclick = () => {};
+    }
+
+    function saveAndNext(originalIndex, q, options){
+      let picked;
+      if(q.type==='single'){
+        const sel = options.querySelector('input:checked'); picked = sel ? [ +sel.value ] : [];
+      } else if(q.type==='multiple'){
+        picked = [...options.querySelectorAll('input:checked')].map(i=>+i.value);
+      } else if(q.type==='order'){
+        picked = Array.from(options.querySelectorAll('#orderList .draggable')).map(el=>el.textContent);
+      } else if(q.type==='match'){
+        picked = {}; options.querySelectorAll('.slot').forEach(slot=>{
+          const l=slot.getAttribute('data-left'); const it=slot.querySelector('.draggable');
+          picked[l] = it ? it.getAttribute('data-right') : '';
+        });
+      }
+
+      const record = { index: originalIndex, shownOrder: idx, type: q.type, picked };
+      answers[idx] = record;
+      localStorage.setItem(LS.data, JSON.stringify(answers));
+      idx++; localStorage.setItem(LS.idx, String(idx));
+      render();
+    }
+
+    async function renderResult(){
+      bar.style.width = '100%';
+      const payload = buildPayload();
+
+      // 1) Локальна перевірка — показуємо результат одразу
+      const local = localCheck(payload);
+
+      stage.innerHTML = `
+        <h2>Підсумок</h2>
+        <div class="kpis">
+          <div class="kpi"><b id="score">${local.total}/${QUIZ.questions.length}</b><div class="muted">Балів</div></div>
+          <div class="kpi"><b id="pct">${local.percent}%</b><div class="muted">Відсоток</div></div>
+          <div class="kpi"><b>${timeTaken()}</b><div class="muted">Час</div></div>
+        </div>
+        <div class="actions">
+          <div class="muted" id="sendStatus"><span class="status">Надсилання…</span></div>
+          <button class="btn" id="retryBtn">Повторити відправку</button>
+        </div>
+        <table class="table"><thead><tr><th>#</th><th>Питання</th><th>Статус</th></tr></thead>
+          <tbody id="rows"></tbody>
         </table>
-      </div>
-      <div class="result">
-        <h3 style="margin:0 0 8px">Рекомендации</h3>
-        <div id="reco"></div>
-      </div>
-      <div class="result ai" id="aiPanel">
-        <h3 style="margin:0 0 8px">AI-аудит результата</h3>
-        <div id="aiStatus" class="small muted"><span class="spinner"></span> Анализ результата AI…</div>
-        <div id="aiBox" class="hidden"></div>
-      </div>
-    </div>
-    <div class="hr"></div>
-    <div class="footer">
-      <button class="btn" id="reviewBtn">Просмотреть ответы</button>
-      <button class="btn" id="printBtn">Печать / PDF</button>
-      <button class="btn primary" id="downloadBtn">Скачать отчёт (.json)</button>
-      <button class="btn ghost" id="restartBtn">Пройти заново</button>
-    </div>
-  </div>
-</div>
+        <div class="warning">Тест заблоковано — перезапуск неможливий до завершення таймера.</div>`;
 
-<script>
-/* ====== AI endpoint ====== */
-const AI_ENDPOINT = "https://script.google.com/macros/s/AKfycbyyzBueArpRlxI2xbyHo3lKWv_XQqnNUf1esQqgqTF3mIir2ogng7lFT4aoN4GdJ8Vntw/exec";
-(function(){ const warn = document.getElementById('aiWarn');
-  warn.textContent = (AI_ENDPOINT && AI_ENDPOINT.includes('/exec'))
-    ? "AI подключён. После завершения теста появится AI-аудит."
-    : "AI-аудит не подключён: вставьте Web App URL (Apps Script) в AI_ENDPOINT.";
-})();
+      const rows = document.getElementById('rows');
+      local.breakdown.forEach((b,i)=>{ 
+        const tr=document.createElement('tr'); 
+        tr.innerHTML=`<td>${i+1}</td><td>${b.id}</td><td>${b.ok?'<span class="pill ok">вірно</span>':'<span class="pill bad">помилка</span>'}</td>`;
+        rows.appendChild(tr); 
+      });
 
-/* ====== Банк вопросов (48) ====== */
-const QUESTIONS = [
-  {id:"A1-1",level:"A1",q:"Выберите правильный артикль: ___ Tisch.",options:["Der","Die","Das","Den"],answerIdx:0},
-  {id:"A1-2",level:"A1",q:"Как перевести: Ich heiße Anna.",options:["Мне нравится Анна","Меня зовут Анна","Я из Анны","Я люблю Анну"],answerIdx:1},
-  {id:"A1-3",level:"A1",q:"Глагол sein, 1 л. ед.: Ich ___ müde.",options:["bist","ist","bin","seid"],answerIdx:2},
-  {id:"A1-4",level:"A1",q:"Сколько это? fünf + drei =",options:["7","8","9","6"],answerIdx:1},
-  {id:"A1-5",level:"A1",q:"Какой сегодня день? 'Montag' — это…",options:["Понедельник","Вторник","Среда","Четверг"],answerIdx:0},
-  {id:"A1-6",level:"A1",q:"Выберите множественное число: das Buch → die ___",options:["Buchs","Büche","Bücher","Buches"],answerIdx:2},
-  {id:"A1-7",level:"A1",q:"Местоимение 'мой' (m): ___ Vater",options:["mein","meine","meiner","meins"],answerIdx:0},
-  {id:"A1-8",level:"A1",q:"Основной порядок слов: Ich ___ in Berlin.",options:["wohne","wohnt","wohnen","wohnst"],answerIdx:0},
+      // 2) Відправка на сервер (у фоні)
+      const sendStatus = document.querySelector('#sendStatus .status');
+      const trySend = async () => {
+        sendStatus.className = 'status';
+        sendStatus.textContent = 'Надсилання…';
+        try {
+          const data = await sendToWebhook(payload);
+          sendStatus.classList.add('ok');
+          sendStatus.textContent = 'Надіслано організатору';
+          if(typeof data?.total === 'number' && typeof data?.percent === 'number'){
+            document.getElementById('score').textContent = `${data.total}/${QUIZ.questions.length}`;
+            document.getElementById('pct').textContent = `${data.percent}%`;
+          }
+        } catch (e) {
+          sendStatus.classList.add('err');
+          sendStatus.textContent = 'Не надіслано (офлайн/помилка).';
+        }
+      };
+      document.getElementById('retryBtn').onclick = trySend;
+      trySend();
+    }
 
-  {id:"A2-1",level:"A2",q:"Отделяемая приставка: Ich ___ um 7 Uhr ___ (aufstehen).",options:["aufstehe … mich","stehe … auf","auf … stehe","stehe … an"],answerIdx:1},
-  {id:"A2-2",level:"A2",q:"Akkusativ/Dativ: Ich gebe ___ Bruder das Buch.",options:["der","den","dem","des"],answerIdx:2},
-  {id:"A2-3",level:"A2",q:"Модальные: Ich ___ heute arbeiten.",options:["müssen","muss","müsst","müssen wir"],answerIdx:1},
-  {id:"A2-4",level:"A2",q:"Прош. время Perfekt: Ich habe gestern viel ___ (lernen).",options:["gelernt","gelernen","lernen","gelern"],answerIdx:0},
-  {id:"A2-5",level:"A2",q:"Сравнение: teuer → ___",options:["teuerer","teurer","am teuersten","teuerste"],answerIdx:1},
-  {id:"A2-6",level:"A2",q:"Порядок слов с временным обстоятельством: Heute ___ ich in die Stadt.",options:["gehe","ich gehe","gehe ich","ich gehe heute"],answerIdx:2},
-  {id:"A2-7",level:"A2",q:"Предлоги направления: Ich gehe ___ Schule.",options:["zur","bei der","von der","auf der"],answerIdx:0},
-  {id:"A2-8",level:"A2",q:"Правильный артикль в Akkusativ (f): Ich sehe ___ Frau.",options:["die","der","eine","einer"],answerIdx:2},
+    async function sendToWebhook(payload){
+      const controller = new AbortController();
+      const t = setTimeout(()=>controller.abort(), 8000);
+      const rsp = await fetch(QUIZ.webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json;charset=utf-8' },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+      clearTimeout(t);
+      if(!rsp.ok) throw new Error('HTTP '+rsp.status);
+      return await rsp.json();
+    }
 
-  {id:"B1-1",level:"B1",q:"Придаточное с weil: Ich bleibe zu Hause, weil ich ___.",options:["bin müde","müde bin","bin der müde","müde ist"],answerIdx:1},
-  {id:"B1-2",level:"B1",q:"Präteritum модальных: Früher ___ ich nicht gut schwimmen.",options:["kann","konnte","кönnte","kannte"],answerIdx:1},
-  {id:"B1-3",level:"B1",q:"Относительное: Der Mann, ___ dort steht, ist mein Lehrer.",options:["der","den","dem","dessen"],answerIdx:0},
-  {id:"B1-4",level:"B1",q:"Пассив Präsens: Der Brief ___ von ihm geschrieben.",options:["wird","ist geschrieben","wird geschrieben","war geschrieben"],answerIdx:2},
-  {id:"B1-5",level:"B1",q:"Genitiv: Das ist das Auto ___ Freundin.",options:["meine","meiner","meines","meinem"],answerIdx:1},
-  {id:"B1-6",level:"B1",q:"Прилагательные: der ___ Film",options:["interessanter","interessante","interessantes","interessantem"],answerIdx:1},
-  {id:"B1-7",level:"B1",q:"Konjunktiv II (вежливо): ___ Sie mir bitte helfen?",options:["Könnten","Kannst","Würdest","Darfst"],answerIdx:0},
-  {id:"B1-8",level:"B1",q:"Союз dass: Er sagt, ___ er morgen kommt.",options:["dass","das","wie","ob"],answerIdx:0},
+    function buildPayload(){
+      const email = localStorage.getItem(LS.email);
+      const startedAt = +localStorage.getItem(LS.start) || Date.now();
+      const finishedAt = Date.now();
+      const alpha = ['a','b','c','d','e','f'];
 
-  {id:"B2-1",level:"B2",q:"Конъюнктив II: Heute ___ ich, wäre ich frei, ins Kino gegangen.",options:["gehe","ginge","wäre","würde"],answerIdx:1},
-  {id:"B2-2",level:"B2",q:"Zustandspassiv: Die Tür ist ___ .",options:["geöffnet","wird geöffnet","öffnete","am Öffnen"],answerIdx:0},
-  {id:"B2-3",level:"B2",q:"Коллокация: eine Entscheidung ___",options:["nehmen","treffen","machen","setzen"],answerIdx:1},
-  {id:"B2-4",level:"B2",q:"Глагол+предлог: warten ___ den Bus",options:["an","auf","für","über"],answerIdx:1},
-  {id:"B2-5",level:"B2",q:"Partizip как прилаг.: die ___ Kinder (schreien)",options:["schreienden","geschrien","schreiende","geschreiende"],answerIdx:2},
-  {id:"B2-6",level:"B2",q:"Инверсия: Morgen ___ ich keine Zeit.",options:["habe","ich habe","habe ich","ich habe Morgen"],answerIdx:2},
-  {id:"B2-7",level:"B2",q:"Косвенная речь: Er sagt, er ___ spät.",options:["kommt","käme","kommen","gekommen"],answerIdx:0},
-  {id:"B2-8",level:"B2",q:"«jedoch» ближе к…",options:["denn","aber","also","trotzdem"],answerIdx:1},
+      const orderMap = {};
+      const reverseOrderMap = {};
+      answers.forEach(rec => { orderMap[rec.shownOrder] = rec.index; reverseOrderMap[rec.index] = rec.shownOrder; });
 
-  {id:"C1-1",level:"C1",q:"Лексика: «nachhaltig» ближе к…",options:["kurzfristig","dauerhaft","zufällig","oberflächlich"],answerIdx:1},
-  {id:"C1-2",level:"C1",q:"Коннекторы: ___ er krank war, arbeitete er weiter.",options:["Obwohl","Während","Damit","Sobald"],answerIdx:0},
-  {id:"C1-3",level:"C1",q:"Номинализация: «die Zusammenarbeit verbessern» → «die ___ der Zusammenarbeit».",options:["Verbesserung","Verbesserlichkeit","Verbesserungheit","Verbesserungung"],answerIdx:0},
-  {id:"C1-4",level:"C1",q:"Идиома: «Das ist nicht mein Bier» значит…",options:["Это не моё дело","Это очень важно","Это мой выбор","Это дорого"],answerIdx:0},
-  {id:"C1-5",level:"C1",q:"Научный синоним к «wichtig»",options:["wesentlich","nett","locker","billig"],answerIdx:0},
-  {id:"C1-6",level:"C1",q:"«Folglich» выражает…",options:["противопоставление","следствие","уступку","условие"],answerIdx:1},
-  {id:"C1-7",level:"C1",q:"sich auseinandersetzen ___ einem Thema",options:["über","mit","für","an"],answerIdx:1},
-  {id:"C1-8",level:"C1",q:"«sowohl … als auch …» значит…",options:["или … или","как … так и","не только … но и","хотя … но"],answerIdx:1},
+      const normalized = answers.map((rec,shownOrder)=>{
+        const q = QUIZ.questions[rec.index];
+        const idByOriginal = `q${rec.index+1}`;
+        const idByOrder = `q${shownOrder+1}`;
+        if(rec.type==='single'){
+          const pickedIndex = rec.picked && rec.picked.length ? rec.picked[0] : null;
+          const letter = (pickedIndex==null) ? '' : alpha[pickedIndex] ?? '';
+          const text = (pickedIndex==null) ? '' : (q.options[pickedIndex] ?? '');
+          return { idByOriginal, idByOrder, type:'single',
+            valueIndex: pickedIndex, valueNumber1: pickedIndex==null?null:(pickedIndex+1),
+            valueLetter: letter, valueText: text };
+        }
+        if(rec.type==='multiple'){
+          const arr = rec.picked||[];
+          return { idByOriginal, idByOrder, type:'multiple',
+            valueIndexes: arr, valueNumbers1: arr.map(i=>i+1),
+            valueLetters: arr.map(i=>alpha[i]), valueTexts: arr.map(i=>q.options[i]||'') };
+        }
+        if(rec.type==='order'){ return { idByOriginal, idByOrder, type:'order', value:rec.picked }; }
+        if(rec.type==='match'){ return { idByOriginal, idByOrder, type:'match', value:rec.picked }; }
+        return { idByOriginal, idByOrder, type:rec.type, value:rec.picked };
+      });
 
-  {id:"C2-1",level:"C2",q:"Стиль: наиболее формальное?",options:["begreifen","kapieren","verstehen","ersinnen"],answerIdx:3},
-  {id:"C2-2",level:"C2",q:"«unterstellen» ближе к…",options:["vermuten (с оттенком обвинения)","übergeben","unterstützen","abwarten"],answerIdx:0},
-  {id:"C2-3",level:"C2",q:"Контекст: «Er agiert mit Bedacht.»",options:["импульсивно","обдуманно","пассивно","громко"],answerIdx:1},
-  {id:"C2-4",level:"C2",q:"«haushaltspolitische Konsolidierung» — это…",options:["рост расходов","сокращение дефицита","рост налоговых льгот","монетизация долга"],answerIdx:1},
-  {id:"C2-5",level:"C2",q:"Замена указ. слова: «Diese Entwicklung, ___ zufolge …»",options:["deren","derer","welcher","wohin"],answerIdx:0},
-  {id:"C2-6",level:"C2",q:"«zunehmend heterogen» значит…",options:["всё более неоднородный","всё более однородный","единообразный","несопоставимый"],answerIdx:0},
-  {id:"C2-7",level:"C2",q:"Коллокация: «etw. in Erwägung ___»",options:["bringen","nehmen","setzen","stellen"],answerIdx:0},
-  {id:"C2-8",level:"C2",q:"«maßgeblich» ближе к…",options:["zufällig","entscheidend","fraglich","überschaubar"],answerIdx:1}
-];
+      return {
+        title: QUIZ.title,
+        email,
+        startedAt,
+        finishedAt,
+        durationMin: QUIZ.durationMin,
+        totalQuestions: QUIZ.questions.length,
+        questionIdsOriginal: QUIZ.questions.map((_,i)=>`q${i+1}`),
+        questionIdsOrder: answers.map((_,i)=>`q${i+1}`),
+        orderMap, reverseOrderMap,
+        answers: normalized,
+        ua: navigator.userAgent
+      };
+    }
 
-/* ====== Состояние/ссылки ====== */
-const state = { startedAt:null, current:0, answers:{}, times:{}, qStartAt:null, honesty:false };
-const order = QUESTIONS.map((_,i)=>i), total = order.length;
+    // Локальна перевірка (по QUIZ.answerKey)
+    function localCheck(payload){
+      const key = QUIZ.answerKey;
+      let ok = 0;
+      const breakdown = payload.answers.map(a=>{
+        if(a.type!=='single'){ return { id: a.idByOriginal, ok:true }; }
+        const original = parseInt(a.idByOriginal.slice(1),10)-1;
+        const correctIndex = key[original];
+        const isOk = (a.valueIndex === correctIndex);
+        if(isOk) ok++;
+        return { id: a.idByOriginal, ok: isOk };
+      });
+      const total = ok;
+      const percent = Math.round((ok / QUIZ.questions.length) * 100);
+      return { total, percent, breakdown };
+    }
 
-const intro = qs('#screen-intro'), test = qs('#screen-test'), result = qs('#screen-result');
-const startBtn = qs('#startBtn'), honestyCb = qs('#honesty');
-const questionHost = qs('#questionHost'), progressBar = qs('#progressBar'), progressBadge = qs('#progressBadge'), lvlTag = qs('#lvlTag');
-const prevBtn = qs('#prevBtn'), nextBtn = qs('#nextBtn'), finishBtn = qs('#finishBtn');
-const timerBadge = qs('#timerBadge'), speedBadge = qs('#speedBadge');
-const headline = qs('#headline'), summaryBox = qs('#summaryBox'), bandTableBody = qs('#bandTable tbody'), reco = qs('#reco');
-const reviewBtn = qs('#reviewBtn'), printBtn = qs('#printBtn'), downloadBtn = qs('#downloadBtn'), restartBtn = qs('#restartBtn');
-const aiStatus = qs('#aiStatus'), aiBox = qs('#aiBox');
-
-function qs(s){return document.querySelector(s)}
-function clamp(n,a,b){return Math.max(a,Math.min(b,n))}
-function fmtSec(s){const m=Math.floor(s/60),r=s%60;return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`}
-
-/* ====== Запуск ====== */
-startBtn.addEventListener('click',()=>{
-  if(!honestyCb.checked){alert('Поставьте галочку о честном прохождении.');return;}
-  state.honesty = true; state.startedAt=Date.now(); state.qStartAt=Date.now();
-  intro.classList.add('hidden'); test.classList.remove('hidden'); renderCurrent(); tick();
-});
-
-/* ====== Таймер ====== */
-let tickTimer=null;
-function tick(){
-  clearInterval(tickTimer);
-  tickTimer = setInterval(()=>{
-    const elapsed = Math.floor((Date.now()-state.startedAt)/1000);
-    timerBadge.textContent = fmtSec(elapsed);
-    const answered = Object.keys(state.answers).length || 1;
-    const avg = elapsed / answered;
-    speedBadge.textContent = `скорость: ${avg.toFixed(1)} c/вопр`;
-  },1000);
-}
-
-/* ====== Навигация ====== */
-prevBtn.addEventListener('click',()=>move(-1));
-nextBtn.addEventListener('click',()=>move(1));
-finishBtn.addEventListener('click',()=>finish());
-
-function saveTimeForCurrent(){
-  const q = QUESTIONS[order[state.current]];
-  const spent = Math.floor((Date.now()-state.qStartAt)/1000);
-  state.times[q.id] = (state.times[q.id] || 0) + spent;
-  state.qStartAt = Date.now();
-}
-function move(delta){
-  saveTimeForCurrent();
-  state.current = clamp(state.current+delta,0,total-1);
-  renderCurrent();
-}
-
-/* ====== Рендер вопроса (без индексов «Не знаю») ====== */
-function renderCurrent(){
-  const idx = state.current;
-  const q = QUESTIONS[order[idx]];
-  progressBadge.textContent = `Вопрос ${idx+1} / ${total}`;
-  progressBar.style.width = `${((idx+1)/total*100).toFixed(1)}%`;
-  lvlTag.textContent = q.level;
-
-  questionHost.innerHTML = '';
-  const box = document.createElement('div'); box.className='q';
-  box.innerHTML = `<h3>${q.q}</h3>`;
-
-  // нормальные варианты
-  q.options.forEach((opt,optIdx)=>{
-    const lab = document.createElement('label'); lab.className='opt';
-    lab.textContent = opt;
-    lab.addEventListener('click',()=>{
-      state.answers[q.id] = optIdx; // обычный ответ — число
-      goNext();
-    });
-    // подсветка выбора
-    if (state.answers[q.id] === optIdx) lab.classList.add('correct'); // просто отметка выбранного
-    box.appendChild(lab);
-  });
-
-  // «Не знаю» — отдельная метка
-  const IDK_LABEL = 'Не знаю';
-  const idkEl = document.createElement('label'); idkEl.className='opt'; idkEl.textContent = IDK_LABEL;
-  idkEl.addEventListener('click',()=>{ state.answers[q.id] = 'idk'; goNext(); });
-  if (state.answers[q.id] === 'idk') idkEl.classList.add('wrong'); // подсветим иначе
-  box.appendChild(idkEl);
-
-  questionHost.appendChild(box);
-
-  function goNext(){
-    setTimeout(()=>{
-      if(state.current<total-1){ move(1); }
-      else { nextBtn.classList.add('hidden'); finishBtn.classList.remove('hidden'); }
-    },80);
-  }
-
-  prevBtn.disabled = idx===0;
-  nextBtn.classList.toggle('hidden', idx===total-1);
-  finishBtn.classList.toggle('hidden', idx!==total-1);
-}
-
-/* ====== Подсчёт (антиугадывание + взвешенный индекс) ====== */
-function scoreReport(){
-  const perBand = {A1:[],A2:[],B1:[],B2:[],C1:[],C2:[]};
-  let penalized=0, correct=0, wrong=0, skip=0;
-  const details=[];
-
-  QUESTIONS.forEach(q=>{
-    const ans = state.answers[q.id];
-    let delta=0;
-    const isIdk = (ans === 'idk'); // ТОЛЬКО метка, никаких индексов!
-
-    if(ans===undefined || isIdk){ delta=0; skip++; }
-    else if(ans===q.answerIdx){ delta=1; correct++; }
-    else { delta=-0.33; wrong++; }
-
-    penalized += delta;
-    perBand[q.level].push({id:q.id,correct:ans===q.answerIdx,delta});
-    details.push({
-      id:q.id,level:q.level,chosen:(isIdk?null:ans),correctIdx:q.answerIdx,delta,
-      timeSec:state.times[q.id]||0
-    });
-  });
-
-  const bandRates={};
-  Object.keys(perBand).forEach(b=>{
-    const arr=perBand[b], total=arr.length, ok=arr.filter(x=>x.correct).length;
-    bandRates[b]={ok,total,rate: total? ok/total : 0};
-  });
-
-  // взвешенный индекс
-  const bandToIdx = { A1:1, A2:2, B1:3, B2:4, C1:5, C2:6 };
-  let num=0, den=0;
-  for(const b of Object.keys(bandRates)){
-    const r = bandRates[b].rate;
-    num += (bandToIdx[b]||0) * r;
-    den += r;
-  }
-  const weightedIdx = den ? num/den : 0;
-  function idxToBand(x){
-    if (x < 1.5) return "A1";
-    if (x < 2.5) return "A2";
-    if (x < 3.5) return "B1";
-    if (x < 4.5) return "B2";
-    if (x < 5.5) return "C1";
-    return "C2";
-  }
-  const weightedLevel = den ? idxToBand(weightedIdx) : "A0";
-
-  // «жёсткий» по порогам
-  const passReq = {A1:.70,A2:.65,B1:.60,B2:.60,C1:.55,C2:.50};
-  const orderBands=["A1","A2","B1","B2","C1","C2"];
-  let achieved="A0";
-  for (const b of orderBands) {
-    if ((bandRates[b]?.rate || 0) >= passReq[b]) achieved = b;
-  }
-
-  const totalSec = Math.floor((Date.now()-state.startedAt)/1000);
-  const avgSec = totalSec / Math.max(1,Object.keys(state.answers).length||1);
-  const fast = avgSec < 4.0;
-  let reliability = 1.0;
-  if(fast) reliability -= 0.25;
-  if(!state.honesty) reliability -= 0.15;
-  if(skip===0 && wrong>correct) reliability -= 0.1;
-  reliability = clamp(reliability,0,1);
-
-  const maxRaw = QUESTIONS.length;
-  const norm = clamp((penalized + (QUESTIONS.length*0.33)) / (maxRaw+QUESTIONS.length*0.33), 0,1);
-
-  return {
-    achieved, weightedLevel, weightedIdx:+weightedIdx.toFixed(2),
-    bandRates, penalized:+penalized.toFixed(2),
-    correct, wrong, skip, total: QUESTIONS.length,
-    totalSec, avgSec:+avgSec.toFixed(1), reliability:+reliability.toFixed(2),
-    norm:+norm.toFixed(2), details
-  };
-}
-
-/* ====== Завершение ====== */
-async function finish(){
-  saveTimeForCurrent();
-  test.classList.add('hidden'); clearInterval(tickTimer);
-  const report = scoreReport();
-  showResult(report);
-  aiAudit(report).catch(()=>{ aiStatus.textContent = "AI-аудит: ошибка сети или URL."; });
-}
-
-function showResult(r){
-  result.classList.remove('hidden');
-  const levelBadges={"A1":"Начальный","A2":"Элементарный","B1":"Средний","B2":"Уверенный средний","C1":"Продвинутый","C2":"Владение","A0":"Ниже A1"};
-
-  headline.innerHTML = `
-    <div class="kpi">
-      <span>Взвешенный уровень:</span>
-      <span class="v" style="margin-left:6px">${r.weightedLevel}</span>
-      <span class="chip">${levelBadges[r.weightedLevel]||""}</span>
-    </div>
-    <div class="small muted" style="margin-top:6px">
-      Жёсткий по порогам: <strong>${r.achieved}</strong> · Индекс = ${r.weightedIdx ?? "-"}
-    </div>
-  `;
-
-  summaryBox.innerHTML = `
-    <div class="grid">
-      <div class="kpi"><span>Баллы с антиугадыванием:</span> <span class="v">${r.penalized} / ${r.total}</span></div>
-      <div class="kpi"><span>Правильно / Ошибки / «Не знаю»:</span> <span class="v">${r.correct} / ${r.wrong} / ${r.skip}</span></div>
-      <div class="kpi"><span>Время:</span> <span class="v">${fmtSec(r.totalSec)} (ср. ${r.avgSec}s/вопр)</span></div>
-      <div class="kpi"><span>Надёжность прохождения:</span> <span class="v">${(r.reliability*100).toFixed(0)}%</span></div>
-    </div>`;
-
-  bandTableBody.innerHTML='';
-  Object.entries(r.bandRates).forEach(([lvl,dat])=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML = `<td>${lvl}</td><td>${dat.ok}</td><td>${dat.total}</td><td>${Math.round(dat.rate*100)}%</td>`;
-    bandTableBody.appendChild(tr);
-  });
-
-  const recoLines=[];
-  const need = (lvl)=>r.bandRates[lvl] && r.bandRates[lvl].rate < ({A1:.70,A2:.65,B1:.60,B2:.60,C1:.55,C2:.50}[lvl]);
-  if(r.weightedLevel==="A0"||r.weightedLevel==="A1"){recoLines.push("База: sein/haben, артикли, порядок слов; 1000–1500 слов; аудирование A1 ежедневно.");}
-  if(r.weightedLevel==="A2"){recoLines.push("Отделяемые приставки, Perfekt, модальные, словарь ~2500 слов.");}
-  if(r.weightedLevel==="B1"){recoLines.push("Weil/dass, относительные, Präteritum модальных, Genitiv; ежедневная речь/письмо.");}
-  if(r.weightedLevel==="B2"){recoLines.push("Коннекторы, косвенная речь, коллокации, пассив; публицистика/аналитика.");}
-  if(r.weightedLevel==="C1"){recoLines.push("Академическая лексика, номинализация, точность формулировок; эссе 250–300 слов.");}
-  if(r.weightedLevel==="C2"){recoLines.push("Поддержание: дебаты, узкоспец. тексты, редактирование стиля.");}
-  Object.keys(r.bandRates).forEach(b=>{ if(need(b)) recoLines.push(`Уровень ${b}: дотянуть до целевого порога.`); });
-  if(r.reliability<0.7){recoLines.push("Обнаружены признаки низкой надёжности. Рекомендуется пересдать в спокойных условиях.");}
-  reco.innerHTML = `<ul>${recoLines.map(x=>`<li>${x}</li>`).join('')}</ul>`;
-
-  reviewBtn.onclick = ()=>reviewAnswers();
-  printBtn.onclick = ()=>window.print();
-  downloadBtn.onclick = ()=>{
-    const blob = new Blob([JSON.stringify({generatedAt:new Date().toISOString(),report:r},null,2)],{type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a=document.createElement('a'); a.href=url; a.download='cefr_report.json'; a.click();
-    setTimeout(()=>URL.revokeObjectURL(url),1000);
-  };
-  restartBtn.onclick = ()=>window.location.reload();
-}
-
-/* ====== Просмотр ответов (без индексов «Не знаю») ====== */
-function reviewAnswers(){
-  result.scrollIntoView({behavior:'smooth'});
-  const container = document.createElement('div'); container.className='grid';
-  QUESTIONS.forEach(q=>{
-    const chosen = state.answers[q.id];
-    const wrap = document.createElement('div'); wrap.className='q';
-    wrap.innerHTML = `<div class="level-tag">${q.level}</div><h3 style="margin-top:8px">${q.q}</h3>`;
-    q.options.forEach((opt,i)=>{
-      const lab=document.createElement('div'); lab.className='opt';
-      if(i===q.answerIdx) lab.classList.add('correct');
-      if(typeof chosen==='number' && chosen===i && chosen!==q.answerIdx) lab.classList.add('wrong');
-      lab.textContent = opt;
-      wrap.appendChild(lab);
-    });
-    const idkDiv = document.createElement('div'); idkDiv.className='opt'; idkDiv.textContent='Не знаю';
-    if (chosen==='idk') idkDiv.classList.add('wrong');
-    wrap.appendChild(idkDiv);
-    container.appendChild(wrap);
-  });
-  if(!document.getElementById('reviewBlock')){
-    const sec=document.createElement('div'); sec.id='reviewBlock'; sec.className='result'; sec.style.marginTop='12px';
-    const h=document.createElement('h3'); h.textContent='Разбор вопросов';
-    sec.appendChild(h); sec.appendChild(container); result.appendChild(sec);
-  }
-}
-
-/* ====== AI-аудит ====== */
-async function aiAudit(rawReport) {
-  if (!AI_ENDPOINT || !AI_ENDPOINT.includes('/exec')) {
-    aiStatus.textContent = "AI-аудит не подключён: укажите AI_ENDPOINT вверху файла.";
-    return;
-  }
-
-  const meta = {
-    version: "1.0",
-    honesty: state.honesty,
-    startedAt: new Date(state.startedAt).toISOString(),
-    finishedAt: new Date().toISOString(),
-    locale: "uk-UA",
-    testSpec: { totalQuestions: QUESTIONS.length, penaltyWrong: -0.33, hasIDK: true }
-  };
-
-  let res;
-  try {
-    res = await fetch(AI_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ intent: "final-assess", data: { rawReport, meta } })
-    });
-  } catch (e) {
-    aiStatus.textContent = "AI-аудит: fetch error.";
-    return;
-  }
-
-  let payload;
-  try {
-    payload = await res.json();
-  } catch (e) {
-    aiStatus.textContent = "AI-аудит: не удалось прочитать JSON.";
-    return;
-  }
-
-  const out = payload?.output ?? payload;
-
-  const pretty = (x) => {
-    if (x == null) return "unknown";
-    if (typeof x === "string") return x;
-    try { return JSON.stringify(x).slice(0, 300); } catch (_) { return String(x); }
-  };
-
-  if (!res.ok) { aiStatus.textContent = "AI-аудит HTTP " + res.status + ": " + pretty(out?.error || out); return; }
-  if (!out || out.error) { aiStatus.textContent = "AI-аудит: " + pretty(out?.error || "ошибка ответа"); return; }
-
-  aiStatus.classList.add('hidden');
-  aiBox.classList.remove('hidden');
-
-  const adj = out.adjustments || {};
-  aiBox.innerHTML = `
-    <div class="grid">
-      <div class="kpi"><span>AI-уровень:</span> <span class="v">${sanitize(out.adjustedLevel || "—")}</span></div>
-      <div class="kpi"><span>Доверие AI:</span> <span class="v">${Math.round((out.confidence || 0) * 100)}%</span></div>
-      <div class="kpi"><span>Флаги:</span> <span class="v">${(out.flags || []).map(sanitize).join(', ') || '—'}</span></div>
-    </div>
-    <div class="hr"></div>
-    <div class="small muted">
-      Коррекции по диапазонам (AI): ${["A1","A2","B1","B2","C1","C2"].map(k=>`${k}: ${adj[k] ?? 0}`).join(' · ')}
-    </div>
-    <div style="margin-top:8px">${sanitize(out.rationale || 'Без комментариев.')}</div>
-  `;
-}
-
-function sanitize(t){
-  return String(t).replace(/[&<>"]/g, s => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[s]));
-}
-
-/* ====== Сброс ====== */
-restartBtn.onclick = ()=>window.location.reload();
-</script>
+    function tickTimer(){
+      const end = +localStorage.getItem(LS.end) || 0;
+      if(!end) return;
+      const left = Math.max(0, end - Date.now());
+      const mm = String(Math.floor(left/60000)).padStart(2,'0');
+      const ss = String(Math.floor((left%60000)/1000)).padStart(2,'0');
+      timerEl.textContent = `${mm}:${ss}`;
+      if(left<=0){ idx = order.length; localStorage.setItem(LS.idx, String(idx)); render(); return; }
+      setTimeout(tickTimer, 250);
+    }
+    function timeTaken(){
+      const start = +localStorage.getItem(LS.start) || Date.now();
+      const s = Math.max(0, Math.floor((Date.now()-start)/1000));
+      const mm = String(Math.floor(s/60)).padStart(2,'0');
+      const ss = String(s%60).padStart(2,'0');
+      return `${mm}:${ss}`;
+    }
+  </script>
 </body>
 </html>
