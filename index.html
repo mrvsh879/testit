@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Інтерактивний тест — Італія та ENI</title>
+  <meta name="description" content="Онлайн-тест про Італію та енергетичну компанію ENI. 10 питань, таймер, локальна перевірка та відправка результатів на вебхук." />
   <style>
     :root { --bg:#0b0f19; --panel:#121829; --text:#e6e9f2; --muted:#9aa3b2; --brand:#6ea8fe; --brand-2:#22d3ee; --border:#1f2a44; }
     *{box-sizing:border-box}
@@ -61,20 +62,27 @@
     .signin-wrap{display:flex;align-items:center;gap:12px}
     .warning{background:rgba(255,255,255,.03);border:1px dashed var(--border);padding:10px 12px;border-radius:12px;margin-top:10px;font-size:13px;color:var(--muted)}
     .actions{display:flex;gap:10px;align-items:center;margin:10px 0 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
   </style>
+  <!-- Внешние скрипты: ок для GitHub Pages -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js" defer></script>
 </head>
 <body>
   <div class="wrap">
     <div class="card" id="app">
       <header>
         <div>
-          <h1>Інтерактивний тест</h1>
-          <div class="muted">Вхід через Google або вкажіть робочу пошту. 20 хвилин на проходження. Перезапуск заборонено.</div>
-          <div class="progress"><i id="bar"></i></div>
+          <div class="brand">
+            <span class="dot" aria-hidden="true"></span>
+            <h1>Інтерактивний тест — Італія та ENI</h1>
+          </div>
+          <div class="muted">Вхід через Google або вкажіть робочу пошту. 20 хв на проходження. Перезапуск заборонено.</div>
+          <div class="progress" aria-label="Прогрес проходження"><i id="bar"></i></div>
         </div>
         <div id="userBlock" class="signin-wrap">
+          <!-- Заміни на свій client_id, якщо потрібен Google One Tap -->
           <div id="g_id_onload"
                data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
                data-callback="handleCredentialResponse"
@@ -84,7 +92,7 @@
             <input id="emailInput" type="email" placeholder="ваша_пошта@company.com" />
             <button class="btn" id="startBtn">Старт</button>
           </div>
-          <span id="emailBadge" class="email-badge hidden"></span>
+          <span id="emailBadge" class="email-badge hidden" aria-live="polite"></span>
           <span id="timer" class="timer hidden">20:00</span>
         </div>
       </header>
@@ -102,14 +110,14 @@
   </div>
 
   <script>
-    // ====== НАЛАШТУВАННЯ ТЕСТУ (адаптовано під Італію та ENI) ======
+    // ====== НАЛАШТУВАННЯ ТЕСТУ (Італія + ENI) ======
     const QUIZ = {
       title: "Тест про Італію та ENI (10 питань)",
       durationMin: 20,
-      // За потреби заміни на свій вебхук Google Apps Script / інший бекенд:
+      // Вебхук можна замінити на свій (Google Apps Script / інший бекенд)
       webhookUrl: "https://script.google.com/macros/s/AKfycbz0ZKCEcUj6tMBIvp33L0QFlZMZ8u4R4floJi9FiIwGYOABVLt7zuf_hu50UMYAgcOJ/exec",
 
-      // Ключ правильних відповідей (0-базові індекси) — під варіанти нижче:
+      // Ключ правильних відповідей (0-базові індекси):
       // 1:A(0), 2:A(0), 3:A(0), 4:A(0), 5:A(0), 6:B(1), 7:B(1), 8:C(2), 9:C(2), 10:A(0)
       answerKey: [0,0,0,0,0,1,1,2,2,0],
 
@@ -132,7 +140,7 @@
         { type:'single', text:'Де знаходиться головний офіс компанії ENI?', options:[
           'Рим','Мілан','Турін','Неаполь'
         ]},
-        { type:'single', text:'Скільки приблизно працівників має компанія ENI?', options:[
+        { type:'single', text:'Скільки приблизно працівників має компанію ENI?', options:[
           '15 000','30 000','70 000','5 000'
         ]},
         { type:'single', text:'На якій біржі торгуються акції компанії ENI?', options:[
